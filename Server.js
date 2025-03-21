@@ -10,7 +10,12 @@ connectDB();
 
 
 app.use(express.json({ extended: false }));
-app.use(cors());
+// app.use(cors());
+app.use(cors({
+  origin: ['tour-wheat-pi.vercel.app'],  
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true
+}));
 
 
 app.use('/api/auth', require('./routes/auth'));
